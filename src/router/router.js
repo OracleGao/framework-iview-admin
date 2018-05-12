@@ -91,6 +91,21 @@ export const appRouter = [
                 component: () => import('@/views/error-page/error-page.vue'),
             },
         ]
+    },
+    {
+        path: '/news',
+        icon: 'ios-paper-outline',
+        title: '新闻信息',
+        name: 'news',
+        component: Main,
+        children: [
+            {
+                path: 'index',
+                title: '新闻信息',
+                name: 'news_index',
+                component: () => import('@/views/news/news.vue'),
+            },
+        ]
     }
 ];
 
