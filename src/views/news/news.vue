@@ -86,7 +86,7 @@ export default {
     methods: {
         init () {
             let _self = this;
-            util.ajax.get("/plusy/list").then(res => {
+            util.ajax.get("/spider/list").then(res => {
                 if (res.data.code === '0') {
                     _self.plusyData = res.data.content;
                 }
@@ -96,7 +96,7 @@ export default {
             this.tableData = [];
             this.loading = true;
             let _self = this;
-            util.ajax.get("/plusy/datas?spider=" + spiderName).then(res => {
+            util.ajax.get("/spider/datas?spider=" + spiderName).then(res => {
                 if (res.data.code === '0') {
                     _self.tableData = res.data.content;
                 }
@@ -112,7 +112,7 @@ export default {
         },
         setRead (rowId) {
             this.tableData.filter(data => data.rowId == rowId)[0].isRead = 1;
-            util.ajax.post("/plusy/read?spider=" + this.spider + "&rowId=" + rowId);
+            util.ajax.post("/spider/read?spider=" + this.spider + "&rowId=" + rowId);
         }
     },
 };

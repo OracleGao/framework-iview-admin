@@ -1,4 +1,7 @@
 let config = {
-  skipLogin: true,
+  skipLogin: false,
+  loginUrl: '/system/login',
+  skipLogout: false,
+  logoutUrl: '/system/logout',
 }
 module.exports = config;
