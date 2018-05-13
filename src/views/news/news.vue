@@ -2,9 +2,16 @@
 <Card>
     <Collapse accordion @on-change="changePanel">
         <Panel v-for="item in plusyData" :name="item.spider" :key="item.spider">
-            <span style="width: 100%">{{item.name}}<Icon style="color: red; margin-left: 10px;" type="information-circled"></Icon></span>
+            <span style="margin-left: 5px; font-size: 16px;">
+                <Icon style="color: red; margin-left: 5px; margin-right:5px;" type="information-circled"></Icon>
+                {{item.name}}
+                <a :href="item.href" target="_blank" @click.stop>
+                    <Icon style="margin-left:10px;" color="blue" type="ios-home"></Icon>
+                    <span style="font-size: 14px; margin-left: 2px;">网站</span>
+                </a>
+            </span>
             <p slot="content">
-                <Table :columns="columnsList" :data="tableData" border :loading="loading"></Table>
+                <Table :columns="columnsList" :data="tableData" border :loading="loading" size="large"></Table>
             </p>
         </Panel>
     </Collapse>
