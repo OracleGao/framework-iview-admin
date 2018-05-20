@@ -76,23 +76,6 @@ export const otherRouter = {
 // 作为Main组件的子页面展示并且在左侧菜单显示的路由写在appRouter里
 export const appRouter = [
     {
-        path: '/error-page',
-        icon: 'android-sad',
-        title: '错误页面',
-        name: 'errorpage',
-        access: '0',
-        component: Main,
-        children: [
-            {
-                path: 'index',
-                title: '错误页面',
-                name: 'errorpage_index',
-                access: '0',
-                component: () => import('@/views/error-page/error-page.vue'),
-            },
-        ]
-    },
-    {
         path: '/news',
         icon: 'ios-paper-outline',
         title: '新闻信息',
@@ -104,6 +87,21 @@ export const appRouter = [
                 title: '新闻信息',
                 name: 'news_index',
                 component: () => import('@/views/news/news.vue'),
+            },
+        ]
+    },
+    {
+        path: '/spiders',
+        icon: 'load-b',
+        title: '任务信息',
+        name: 'spiders',
+        component: Main,
+        children: [
+            {
+                path: 'index',
+                title: '任务信息',
+                name: 'spiders_index',
+                component: () => import('@/views/spiders/spiders.vue'),
             },
         ]
     }
