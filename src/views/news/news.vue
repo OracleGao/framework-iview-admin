@@ -61,16 +61,23 @@ export default {
                     align: 'center',
                     sortable: true,
                     render: (h, params) => {
-                        return h('Icon', {
+                        return h('Tooltip', {
                             props: {
-                                type: params.row.isRead === 0 ? 'flag' : 'checkmark',
-                                class: "ivu-icon",
-                            },
-                            style: {
-                                fontSize: '24px',
-                                color: params.row.isRead === 0 ? 'red' : 'auto',
+                                content: params.row.isRead === 0 ? '未读' : '已读',
+                                placement: 'top',
                             }
-                        });
+                        }, [
+                            h('Icon', {
+                                props: {
+                                    type: params.row.isRead === 0 ? 'flag' : 'checkmark',
+                                    class: "ivu-icon",
+                                },
+                                style: {
+                                    fontSize: '24px',
+                                    color: params.row.isRead === 0 ? 'red' : 'auto',
+                                }
+                            }),
+                        ]);
                     },
                 },
             ],
