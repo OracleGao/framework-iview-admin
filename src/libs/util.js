@@ -11,14 +11,8 @@ util.title = function (title) {
     window.document.title = title;
 };
 
-const ajaxUrl = config.env === 'development'
-    ? '/api'
-    : config.env === 'production'
-        ? config.prod.serviceUrl
-        : 'http://localhost';
-
 util.ajax = axios.create({
-    baseURL: ajaxUrl,
+    baseURL: '/api',
     timeout: 30000
 });
 
