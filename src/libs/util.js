@@ -259,6 +259,31 @@ util.fullscreenEvent = function (vm) {
 };
 
 util.checkUpdate = function (vm) {
+    setInterval(() => {
+        Notification.requestPermission().then(function (permission) {
+            if (permission == "granted") {
+              console.log(permission);
+                var notification = new Notification("您有一条新的消息",{
+                    dir: "auto",
+                    lang: "zh-CN",
+                    tag: "testNotice",
+                    icon:'',
+                    body: '你好啊！我是蚂蚁，我在测试桌面推送',
+                    renotify: true
+               });
+               notification.onclose = function () {
+                 console.log('close');
+               }
+           }
+      });
+      /*
+      vm.$Notice.info({
+          title: 'iview-admin更新啦',
+          desc: '<p>iView-admin更新到了，去看看有哪些变化吧</p><a style="font-size:13px;" href="https://github.com/iview/iview-admin/releases" target="_blank">前往github查看</a>',
+          duration: 2
+      });*/
+  }, 10000)
+
   /*
     axios.get('https://api.github.com/repos/iview/iview-admin/releases/latest').then(res => {
         let version = res.data.tag_name;
